@@ -1,7 +1,7 @@
 NAME = push_swap
 
 
-SRCS = 
+SRCS = push_swap.c check_errors.c
 
 
 OBJS = ${SRCS:.c=.o}
@@ -17,13 +17,12 @@ CFLAGS = -Wall -Wextra -Werror
 
 
 .c.o:
-		${CC} ${CFLAGS} -g -c $< -o ${<:.c=.o} -I ./mlx
+		${CC} ${CFLAGS} -g -c $< -o ${<:.c=.o}
 
 
 $(NAME): ${OBJS}
 		make -C ./libft
-		make -C ./mlx
-		$(CC) -g $(OBJS) ./libft/libft.a -L ./mlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+		$(CC) -g $(OBJS) ./libft/libft.a -o $(NAME)
 
 
 all:	${NAME}
@@ -31,7 +30,6 @@ all:	${NAME}
 
 clean:
 		${RM} ${OBJS}
-		make clean -C ./mlx
 		make clean -C ./libft
 
 
