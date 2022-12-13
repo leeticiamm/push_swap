@@ -6,26 +6,34 @@
 /*   By: lmagalha <lmagalha@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:14:53 by lmagalha          #+#    #+#             */
-/*   Updated: 2022/12/12 17:20:12 by lmagalha         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:24:40 by lmagalha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include "./libft/libft.h"
 
 typedef struct push
 {
-    int *stack_a;
-    int *stack_b;
-    int len_a;
-    int len_b;
-}   t_push;
+	int	*stack_a;
+	int	*stack_b;
+	int	len_a;
+	int	len_b;
+}		t_push;
 
-int     check_num(char *num);
-void    check_limits(long num);
-void    check_repeated_num(t_push *push);
-void    check_order(t_push *push);
+int		check_num(char *num);
+void	check_limits(long num);
+void	check_repeated_num(t_push *push);
+int		check_order(t_push *push);
+void	swap(int *stack, char print);
+void	ss(int *stack_a, int *stack_b);
+void	rotate(int *stack, int len, char print);
+void	rr(int *stack_a, int *stack_b, int len_a, int len_b);
+void	reverse_rotate(int *stack, int len, char print);
+void	rrr(int *stack_a, int *stack_b, int len_a, int len_b);
+void	pa(t_push *push);
+void	pb(t_push *push);
 
 #endif
