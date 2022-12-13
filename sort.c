@@ -6,14 +6,14 @@
 /*   By: lmagalha <lmagalha@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:11:33 by lmagalha          #+#    #+#             */
-/*   Updated: 2022/12/13 18:14:04 by lmagalha         ###   ########.fr       */
+/*   Updated: 2022/12/13 18:15:15 by lmagalha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    sort(t_push *push)
+void	sort(t_push *push)
 {
-    if (push->len_a == 2)
-        swap(push->stack_a, 'a');
+	if (push->len_a == 2)
+		swap(push->stack_a, 'a');
 }
