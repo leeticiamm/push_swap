@@ -6,7 +6,7 @@
 /*   By: lmagalha <lmagalha@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 16:04:56 by lmagalha          #+#    #+#             */
-/*   Updated: 2022/12/13 17:25:19 by lmagalha         ###   ########.fr       */
+/*   Updated: 2022/12/15 17:47:22 by lmagalha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	check_repeated_num(t_push *push)
 	j = 1;
 	while (i < push->len_a)
 	{
-		while (j <= push->len_a)
+		while (j < push->len_a)
 		{
 			if (push->stack_a[i] == push->stack_a[j])
 			{
@@ -68,7 +68,7 @@ int	check_order(t_push *push)
 
 	i = 0;
 	j = 1;
-	while (i < push->len_a)
+	while (j < push->len_a)
 	{
 		if (push->stack_a[i] < push->stack_a[j])
 		{

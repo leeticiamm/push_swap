@@ -6,11 +6,33 @@
 /*   By: lmagalha <lmagalha@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:59:39 by lmagalha          #+#    #+#             */
-/*   Updated: 2022/12/13 17:24:29 by lmagalha         ###   ########.fr       */
+/*   Updated: 2022/12/15 16:35:10 by lmagalha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+// #include <stdio.h>
+
+// void printing(t_push *stack)
+// {
+//     int i;
+
+//     i = 0;
+//     while (i < stack->len_a)
+//     {
+//         printf("%d\n", stack->stack_a[i]);
+//         i++;
+//     }
+//     printf("STACK A\n");
+//     printf("\n-----------------------------------\n\n");
+//     i = 0;
+//     while (i < stack->len_b)
+//     {
+//         printf("%d\n", stack->stack_b[i]);
+//         i++;
+//     }
+//     printf("STACK B\n\n\n");
+// }
 
 int	main(int argc, char *argv[])
 {
@@ -35,6 +57,9 @@ int	main(int argc, char *argv[])
 		}
 		check_repeated_num(&push);
 		check_order(&push);
+		get_index(&push);
+		sort(&push);
+        free(push.stack_a);
 	}
 	return (0);
 }

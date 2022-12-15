@@ -1,7 +1,7 @@
 NAME = push_swap
 
 
-SRCS = push_swap.c check_errors.c operations.c operations2.c push_a.c push_b.c sort.c
+SRCS = push_swap.c check_errors.c operations.c operations2.c push_a.c push_b.c sort.c get_index.c
 
 
 OBJS = ${SRCS:.c=.o}
