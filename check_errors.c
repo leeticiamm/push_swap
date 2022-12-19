@@ -6,7 +6,7 @@
 /*   By: lmagalha <lmagalha@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 16:04:56 by lmagalha          #+#    #+#             */
-/*   Updated: 2022/12/15 17:47:22 by lmagalha         ###   ########.fr       */
+/*   Updated: 2022/12/19 15:45:03 by lmagalha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ int	check_num(char *num)
 	while (num[i])
 	{
 		if (ft_isdigit(num[i]) == 0)
+		{
+			ft_putstr_fd("Error\n", 1);
+			exit(0);
+		}
+		if ((num[i] == '-' || num[i] == '+')
+			&& !(num[i + 1] >= '0' && num[i + 1] <= '9'))
 		{
 			ft_putstr_fd("Error\n", 1);
 			exit(0);
@@ -45,11 +51,11 @@ void	check_repeated_num(t_push *push)
 
 	i = 0;
 	j = 1;
-	while (i < push->len_a)
+	while (i < push->len)
 	{
-		while (j < push->len_a)
+		while (j < push->len)
 		{
-			if (push->stack_a[i] == push->stack_a[j])
+			if (push->stack[i] == push->stack[j])
 			{
 				ft_putstr_fd("Error\n", 1);
 				exit(0);
@@ -63,14 +69,14 @@ void	check_repeated_num(t_push *push)
 
 int	check_order(t_push *push)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 1;
-	while (j < push->len_a)
+	while (j < push->len)
 	{
-		if (push->stack_a[i] < push->stack_a[j])
+		if (push->stack[i] < push->stack[j])
 		{
 			i++;
 			j++;
@@ -78,6 +84,5 @@ int	check_order(t_push *push)
 		else
 			return (0);
 	}
-	free(push->stack_a);
-	exit(0);
+	return (1);
 }

@@ -6,60 +6,37 @@
 /*   By: lmagalha <lmagalha@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:59:39 by lmagalha          #+#    #+#             */
-/*   Updated: 2022/12/15 16:35:10 by lmagalha         ###   ########.fr       */
+/*   Updated: 2022/12/19 15:47:47 by lmagalha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-// #include <stdio.h>
-
-// void printing(t_push *stack)
-// {
-//     int i;
-
-//     i = 0;
-//     while (i < stack->len_a)
-//     {
-//         printf("%d\n", stack->stack_a[i]);
-//         i++;
-//     }
-//     printf("STACK A\n");
-//     printf("\n-----------------------------------\n\n");
-//     i = 0;
-//     while (i < stack->len_b)
-//     {
-//         printf("%d\n", stack->stack_b[i]);
-//         i++;
-//     }
-//     printf("STACK B\n\n\n");
-// }
 
 int	main(int argc, char *argv[])
 {
 	int		i;
-	t_push	push;
+	t_push	push_a;
+	t_push	push_b;
 
 	i = 1;
-	push.len_a = argc - 1;
-	if (argc > 2)
+	push_a.len = argc - 1;
+	push_b.len = 0;
+	while (argv[i])
+		check_num(argv[i++]);
+	if (argc < 3)
+		return (0);
+	push_a.stack = malloc(sizeof(int) * push_a.len);
+	i = 0;
+	while (argv[++i])
+		push_a.stack[i - 1] = ft_atoi(argv[i]);
+	check_repeated_num(&push_a);
+	if (check_order(&push_a) == 1)
 	{
-		while (argv[i])
-		{
-			check_num(argv[i]);
-			i++;
-		}
-		push.stack_a = malloc(sizeof(int) * push.len_a);
-		i = 1;
-		while (argv[i])
-		{
-			push.stack_a[i - 1] = ft_atoi(argv[i]);
-			i++;
-		}
-		check_repeated_num(&push);
-		check_order(&push);
-		get_index(&push);
-		sort(&push);
-        free(push.stack_a);
+		free(push_a.stack);
+		return (0);
 	}
+	get_index(&push_a);
+	sort(&push_a, &push_b);
+	free(push_a.stack);
 	return (0);
 }

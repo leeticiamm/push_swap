@@ -6,7 +6,7 @@
 /*   By: lmagalha <lmagalha@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:14:53 by lmagalha          #+#    #+#             */
-/*   Updated: 2022/12/15 15:56:02 by lmagalha         ###   ########.fr       */
+/*   Updated: 2022/12/19 15:39:36 by lmagalha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@
 
 typedef struct push
 {
-	int	*stack_a;
-	int	*stack_b;
-	int	len_a;
-	int	len_b;
+	int	*stack;
+	int	len;
 }		t_push;
 
 int		check_num(char *num);
@@ -33,9 +31,9 @@ void	rotate(int *stack, int len, char print);
 void	rr(int *stack_a, int *stack_b, int len_a, int len_b);
 void	reverse_rotate(int *stack, int len, char print);
 void	rrr(int *stack_a, int *stack_b, int len_a, int len_b);
-void	pa(t_push *push);
-void	pb(t_push *push);
-void	sort(t_push *push);
-void    get_index(t_push *push);
+void	push(t_push *push_recive, t_push *push_take, char print);
+void	sort(t_push *push_a, t_push *push_b);
+void	get_index(t_push *push);
+void	sort_big(t_push *push_a, t_push *push_b);
 
 #endif
