@@ -6,7 +6,7 @@
 /*   By: lmagalha <lmagalha@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:11:33 by lmagalha          #+#    #+#             */
-/*   Updated: 2022/12/19 15:43:13 by lmagalha         ###   ########.fr       */
+/*   Updated: 2022/12/20 12:56:17 by lmagalha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ void	sort_five(t_push *push_a, t_push *push_b)
 	else if (push_a->stack[3] == 1)
 		reverse_rotate(push_a->stack, push_a->len, 'a');
 	push(push_b, push_a, 'b');
-	sort_three(push_a);
+	if (check_order(push_a) == 0)
+		sort_three(push_a);
 	push(push_a, push_b, 'a');
 	push(push_a, push_b, 'a');
 }
@@ -85,7 +86,8 @@ void	sort_four(t_push *push_a, t_push *push_b)
 	else if (push_a->stack[3] == 0)
 		reverse_rotate(push_a->stack, push_a->len, 'a');
 	push(push_b, push_a, 'b');
-	sort_three(push_a);
+	if (check_order(push_a) == 0)
+		sort_three(push_a);
 	push(push_a, push_b, 'a');
 }
 

@@ -6,7 +6,7 @@
 /*   By: lmagalha <lmagalha@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 16:04:56 by lmagalha          #+#    #+#             */
-/*   Updated: 2022/12/19 15:45:03 by lmagalha         ###   ########.fr       */
+/*   Updated: 2022/12/20 14:23:35 by lmagalha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ int	check_num(char *num)
 			ft_putstr_fd("Error\n", 1);
 			exit(0);
 		}
-		if ((num[i] == '-' || num[i] == '+')
-			&& !(num[i + 1] >= '0' && num[i + 1] <= '9'))
+		if (((num[i + 1] == '-' || num[i + 1] == '+')
+				&& (num[i] >= '0' && num[i] <= '9'))
+			|| ((num[i] == '-' || num[i] == '+') && !num[i + 1]))
 		{
 			ft_putstr_fd("Error\n", 1);
 			exit(0);
